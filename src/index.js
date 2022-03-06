@@ -1,10 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-} from "@apollo/client";
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./pages/posts.jsx";

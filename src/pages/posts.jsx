@@ -29,7 +29,7 @@ export default function Invoices() {
             to={`/${invoice.id}`}
             key={invoice.id}
           >
-            {invoice.id}
+            {invoice.title}
           </Link>
         ))}
       </nav>
