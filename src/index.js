@@ -5,6 +5,8 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./pages/posts.jsx";
 import Post from "./pages/post.jsx";
+import Header from "./pages/Header.jsx";
+import Header2 from "./components/Header2.jsx"
 
 import reportWebVitals from "./reportWebVitals";
 
@@ -22,13 +24,14 @@ const client = new ApolloClient({
 ReactDOM.render(
   <ApolloProvider client={client}>
     <BrowserRouter>
+    <Header2 />
       <Routes>
+        <Route path="/newPost" element={<Header />} />
         <Route path="/" element={<Posts />}>
           <Route path=":postId" element={<Post />} />
         </Route>
       </Routes>
     </BrowserRouter>
-    ,
   </ApolloProvider>,
   document.getElementById("root")
 );
