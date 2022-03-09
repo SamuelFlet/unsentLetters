@@ -1,5 +1,11 @@
 import { Link, Outlet } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
 
 export const GET_LAUNCHES = gql`
   query Query {
@@ -16,24 +22,23 @@ export default function Invoices() {
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
   return (
-    <div style={{ display: "flex" }}>
-      <nav
-        style={{
-          borderRight: "solid 1px",
-          padding: "1rem",
-        }}
-      >
-        {data.getAllPosts.map((invoice) => (
-          <Link
-            style={{ display: "block", margin: "1rem 0" }}
-            to={`/${invoice.id}`}
-            key={invoice.id}
-          >
-            {invoice.title}
-          </Link>
-        ))}
-      </nav>
-      <Outlet />
-    </div>
+    <Table style={{ display: "flex" }}>
+      <TableBody>
+      <TableHead>
+          <TableRow>
+            <TableCell>Title</TableCell>
+            <TableCell>Link to Letter</TableCell>
+            <TableCell>Update Post</TableCell>
+            <TableCell>Delete Post</TableCell>
+          </TableRow>
+        </TableHead>
+          {data.getAllPosts.map((row) => (
+            <TableRow key={row.id}>
+              <TableCell>{row.title}</TableCell>
+              <TableCell component={Link} to={`/${row.id}`}>{`${row.id}`}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+    </Table>
   );
 }
