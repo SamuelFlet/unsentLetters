@@ -26,10 +26,9 @@ ReactDOM.render(
     <BrowserRouter>
     <Header2 />
       <Routes>
-        <Route path="/newPost" element={<Header />} />
-        <Route path="/" element={<Posts />}>
-          <Route path=":postId" element={<Post />} />
-        </Route>
+        <Route path="/" element={<Posts />} />
+        <Route path="/newpost" element={<Header />} />
+        <Route path=":postId" element={<Post />} />
       </Routes>
     </BrowserRouter>
   </ApolloProvider>,
