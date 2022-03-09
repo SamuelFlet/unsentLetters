@@ -8,7 +8,7 @@ import Post from "./pages/post.jsx";
 import Header from "./pages/Header.jsx";
 import Home from "./pages/Home.jsx";
 import Header2 from "./components/Header2.jsx";
-
+import Delete from "./pages/DeletePost.jsx"
 import reportWebVitals from "./reportWebVitals";
 
 const client = new ApolloClient({
@@ -30,7 +30,9 @@ ReactDOM.render(
         <Route path="/Posts" element={<Posts />} />
         <Route path="/" element={<Home />} />
         <Route path="/newpost" element={<Header />} />
-        <Route path=":postId" element={<Post />} />
+        <Route path=":postId" element={<Post />}>
+        </Route>
+        <Route path="/deletepost" element={<Delete />} />
       </Routes>
     </BrowserRouter>
   </ApolloProvider>,
