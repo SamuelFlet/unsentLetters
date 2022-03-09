@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Posts from "./pages/posts.jsx";
 import Post from "./pages/post.jsx";
 import Header from "./pages/Header.jsx";
-import Home from "./pages/Home.jsx";
 import Header2 from "./components/Header2.jsx";
 import Delete from "./pages/DeletePost.jsx"
 import reportWebVitals from "./reportWebVitals";
@@ -27,8 +26,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Header2 />
       <Routes>
-        <Route path="/Posts" element={<Posts />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Posts />} />
         <Route path="/newpost" element={<Header />} />
         <Route path=":postId" element={<Post />}>
         </Route>

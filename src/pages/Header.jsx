@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { TextField, Input } from "@mui/material";
 
 const ADD_POST = gql`
   mutation Mutation($title: String, $description: String) {
@@ -14,10 +14,10 @@ const ADD_POST = gql`
 `;
 
 export default function Comment() {
-  let navigate = useNavigate(); 
-  const routeChange = () =>{ 
-    navigate('/Posts');
-  }
+  let navigate = useNavigate();
+  const routeChange = () => {
+    navigate("/");
+  };
   let title;
   let description;
   const [createPost, { loading, error }] = useMutation(ADD_POST);
@@ -36,27 +36,30 @@ export default function Comment() {
 
             title.value = "";
             description.value = "";
-            routeChange()
+            routeChange();
           }}
         >
           <div>
-            <input
-              ref={(node) => {
+            <TextField label="Title" variant="standard"
+              inputRef={(node) => {
                 title = node;
               }}
             />
           </div>
+          <br></br>
           <div>
-            <textarea
-              ref={(node) => {
-                description = node;
-              }}
-            />
+            <TextField
+          id="outlined-multiline-static"
+          label="Letter Content"
+          multiline
+          rows={4}
+          inputRef={(node) => {
+            description = node;
+          }}
+        />
           </div>
 
-          <button type="submit">
-            Add Todo
-          </button>
+          <button type="submit">Add Todo</button>
         </form>
       </div>
     </Fragment>

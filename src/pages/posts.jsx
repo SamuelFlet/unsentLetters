@@ -6,6 +6,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import Button from "@mui/material/Button";
 
 export const GET_LAUNCHES = gql`
   query Query {
@@ -21,24 +22,38 @@ export default function Invoices() {
   const { data, error } = useQuery(GET_LAUNCHES);
   if (error) return <p>ERROR</p>;
   if (!data) return <p>Not found</p>;
+  function refreshPage() {
+    window.location.reload();
+  }
   return (
-    <Table style={{ display: "flex" }}>
-      <TableBody>
-      <TableHead>
-          <TableRow>
-            <TableCell>Title</TableCell>
-            <TableCell>Link to Letter</TableCell>
-            <TableCell>Update Post</TableCell>
-            <TableCell>Delete Post</TableCell>
-          </TableRow>
-        </TableHead>
+    <div>
+      <Button
+        onClick={refreshPage}
+        variant="contained"
+        size="sm"
+        sx={{ m: 2 }}
+      >
+        Refresh Page
+      </Button>
+      <Table style={{ display: "flex" }}>
+        <TableBody>
+          <TableHead>
+            <TableRow>
+              <TableCell>Title</TableCell>
+              <TableCell>Link to Letter</TableCell>
+            </TableRow>
+          </TableHead>
           {data.getAllPosts.map((row) => (
             <TableRow key={row.id}>
               <TableCell>{row.title}</TableCell>
-              <TableCell component={Link} to={`/${row.id}`}>{`${row.id}`}</TableCell>
+              <TableCell
+                component={Link}
+                to={`/${row.id}`}
+              >{`${row.id}`}</TableCell>
             </TableRow>
           ))}
         </TableBody>
-    </Table>
+      </Table>
+    </div>
   );
 }

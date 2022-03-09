@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { gql, useMutation } from "@apollo/client";
-import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const HELLO = gql`
@@ -12,7 +11,7 @@ export const HELLO = gql`
 export default function Invoice() {
   let navigate = useNavigate();
   const routeChange = () => {
-    navigate("/Posts");
+    navigate("/");
   };
   let params = useParams();
   let deletePostId = params.postId;
