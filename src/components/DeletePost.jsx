@@ -26,7 +26,7 @@ export default function Invoice() {
             deletePostId,
           },
         });
-        routeChange()
+        routeChange();
       }}
     >
       Delete

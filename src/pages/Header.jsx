@@ -1,7 +1,7 @@
 import { gql, useMutation } from "@apollo/client";
 import { Fragment } from "react";
 import { useNavigate } from "react-router-dom";
-import { TextField, Input } from "@mui/material";
+import { TextField } from "@mui/material";
 
 const ADD_POST = gql`
   mutation Mutation($title: String, $description: String) {
