@@ -7,9 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 60%;
 }
-p {
-  text-align: center;
-}
+
 html {
   display: flex;
   justify-content: center;

@@ -1,4 +1,4 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 import * as React from "react";
 import Table from "@mui/material/Table";
@@ -33,7 +33,7 @@ export default function Invoices() {
         size="sm"
         sx={{ m: 2 }}
       >
-        Refresh Page
+        Refresh Table
       </Button>
       <Table style={{ display: "flex" }}>
         <TableBody>
