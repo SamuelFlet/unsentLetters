@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { gql, useQuery } from "@apollo/client";
 import Delete from "../components/DeletePost.jsx";
+import Update from "../components/updatePost.jsx";
 
 export const HELLO = gql`
   query ExampleQuery($getPostId: ID) {
@@ -28,7 +29,10 @@ export default function Invoice() {
       <h1>{data.getPost.title}</h1>
       {z}
       <p>{data.getPost.description}</p>
-      <Delete />
+
+        <Update />
+        <br></br>
+        <Delete />
     </main>
   );
 }

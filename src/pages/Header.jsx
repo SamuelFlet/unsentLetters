@@ -59,7 +59,7 @@ export default function Comment() {
         />
           </div>
 
-          <button type="submit">Add Todo</button>
+          <button type="submit">Submit Letter</button>
         </form>
       </div>
     </Fragment>
