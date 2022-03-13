@@ -1,6 +1,5 @@
 import { gql, useMutation } from "@apollo/client";
 import { Fragment } from "react";
-import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
 
 const ADD_POST = gql`
@@ -14,10 +13,6 @@ const ADD_POST = gql`
 `;
 
 export default function Comment() {
-  let navigate = useNavigate();
-  const routeChange = () => {
-    navigate("/");
-  };
   let title;
   let description;
   const [createPost, { loading, error }] = useMutation(ADD_POST);
@@ -34,9 +29,8 @@ export default function Comment() {
               variables: { title: title.value, description: description.value },
             });
 
-            title.value = "";
-            description.value = "";
-            routeChange();
+            title.value = " ";
+            description.value = " ";
           }}
         >
           <div>

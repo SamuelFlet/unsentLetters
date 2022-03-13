@@ -9,6 +9,8 @@ import Header from "./pages/Header.jsx";
 import Header2 from "./components/Header2.jsx";
 import reportWebVitals from "./reportWebVitals";
 
+
+
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   uri: "https://polar-brook-36280.herokuapp.com/graphql",
@@ -27,8 +29,7 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<Posts />} />
         <Route path="/newpost" element={<Header />} />
-        <Route path=":postId" element={<Post />}>
-        </Route>
+        <Route path=":postId" element={<Post />} />
       </Routes>
     </BrowserRouter>
   </ApolloProvider>,
