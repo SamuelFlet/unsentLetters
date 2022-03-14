@@ -8,7 +8,7 @@ import Post from "./pages/post.jsx";
 import Header from "./pages/Header.jsx";
 import Header2 from "./components/Header2.jsx";
 import reportWebVitals from "./reportWebVitals";
-
+import Update from "./components/updatePost.jsx"
 
 
 const client = new ApolloClient({
@@ -30,6 +30,7 @@ ReactDOM.render(
         <Route path="/" element={<Posts />} />
         <Route path="/newpost" element={<Header />} />
         <Route path=":postId" element={<Post />} />
+        <Route path="/update" element={<Update />} />
       </Routes>
     </BrowserRouter>
   </ApolloProvider>,
